@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="26">
+  <CheatEntries/>
+  <UserdefinedSymbols/>
+  <LuaScript>function connectToProcess()
+  list = createStringlist()
+  getProcesslist(list)
+  for i = 0, list.Count-1 do
+    id, name = list.String[i]:match("(.*)-(.*)")
+    if string.find(name, "obeyme") then
+       openProcess(tonumber(id, 16))
+    end
+  end
+end
+
+function searchForMasters()
+  ms=createMemScan()
+  ms.OnlyOneResult = true
+  ms.firstScan(soExactValue,vtString,0,"master_active_skill","",0, 0xffffffffffffffff, "", fsmNotAligned, "1", false, false, false, false)
+  ms.waitTillDone()
+
+  addr = ms.Result
+  ms.destroy()
+
+  return addr-18
+end
+
+function exportMasters(baseAddress)
+  lengthAddress = baseAddress + 12
+  length = readInteger(lengthAddress)
+  masters = readString(baseAddress + 16, length)
+
+  userPath = os.getenv("UserProfile")
+  f = io.open("H:\\Kait\\OM Mining\\OM Data\\masters\\working\\dump.txt","w")
+-- Use double backslashes for the file path
+  f:write(masters)
+  f:close()
+end
+
+connectToCEServer("localhost", 52736)
+-- for some reason, openProcess by name results in Access violation
+connectToProcess()
+baseAddress = searchForMasters()
+exportMasters(baseAddress)
+</LuaScript>
+</CheatTable>
