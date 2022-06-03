@@ -1,3 +1,6 @@
+# Automatically seperates and formats dump.txt from masterScript.
+# Must be run in same directory.
+
 import json
 import sys
 import re

@@ -2,7 +2,10 @@
 <CheatTable CheatEngineTableVersion="26">
   <CheatEntries/>
   <UserdefinedSymbols/>
-  <LuaScript>function connectToProcess()
+  <LuaScript>
+-- Used in conjusction with CE to automate grabbing the masters
+
+  function connectToProcess()
   list = createStringlist()
   getProcesslist(list)
   for i = 0, list.Count-1 do

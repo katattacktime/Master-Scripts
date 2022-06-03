@@ -1,3 +1,5 @@
+# Used to format anything that isn't a devilgram. Now with added support to choose the language to format. Default is EN. Can be changed by adding -l [lang code] to the end of the command line argument
+
 from pyparsing import Suppress, SkipTo, Word, nums, dblQuotedString, OneOrMore, Literal, ParserElement, removeQuotes
 import os
 import pathlib
@@ -23,7 +25,7 @@ current_label = None
 
 def get_arguments():
 	arg_parser = argparse.ArgumentParser(description='Parse card story from Obey Me!')
-	arg_parser.add_argument('-l', '--languages', type=str, nargs='+', default=["en"], 
+	arg_parser.add_argument('-l', '--languages', type=str, nargs='+', default=["en"],
 		choices=LANGS.keys(), help='Languages to output')
 	arg_parser.add_argument('-t', '--tags', type=bool, default=True, help='If true tags will be removed (e.g. <b>)')
 	arg_parser.add_argument('-r', '--rename', type=bool, default=False, help='Change file name to title')
@@ -146,7 +148,7 @@ def process_stamp(character_full, stamp):
 
 def start_call():
 	output_file.write('*start call*\n')
-	
+
 def end_call():
 	output_file.write('*end call*\n')
 
@@ -221,7 +223,7 @@ def main():
 								current_selection = {}
 								selection_hierarchy = {}
 								current_label = None
-							
+
 							continue
 
 						#TODO bg names

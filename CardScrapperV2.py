@@ -1,3 +1,5 @@
+#reads card numbers from a file you create called cardlist.txt and then combines each number from each new line into a url that then automatically pulls from the CDN
+
 from fake_useragent import UserAgent
 import requests
 import os

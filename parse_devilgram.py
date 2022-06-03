@@ -1,3 +1,5 @@
+#Run ths script after grabbing the devilgram files all in one folder to make them readable
+
 from pyparsing import Suppress, SkipTo, Word, nums, dblQuotedString, OneOrMore, Literal, ParserElement, removeQuotes
 import os
 from os.path import isfile, join, dirname

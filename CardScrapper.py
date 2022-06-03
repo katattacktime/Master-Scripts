@@ -1,3 +1,5 @@
+# used to generate a txt file with links that can be manually pasted into a browser or an appropriate file manager
+
 f=open('cards.txt', 'w')
 with open("cardlist.txt","r") as a_file:
 	for line in a_file:
@@ -8,4 +10,3 @@ with open("cardlist.txt","r") as a_file:
 		f.write('https://cdn-seven.shall-we-date.com/AssetData/iOS/usericon/' + str(line)[:-1] + '_02' + '\n')
 		f.write('https://cdn-seven.shall-we-date.com/AssetData/iOS/usericon/' + str(line)[:-1] + '_03' + '\n')
 		f.write('https://cdn-seven.shall-we-date.com/AssetData/iOS/usericon/' + str(line)[:-1] + '_04' + '\n')
-
